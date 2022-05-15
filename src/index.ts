@@ -1,5 +1,3 @@
-
-// index.ts
 import { Router } from '@vaadin/router';
 import './App';
 import { routes } from "./routes";

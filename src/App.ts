@@ -37,14 +37,14 @@ export class App extends LitElement {
 
   render() {
     return html`
-<!--      <div class="topnav">-->
-<!--        <a class="active" href="/">Home</a>-->
-<!--        <a href="/login">Login</a>-->
-<!--        <a href="/signup">Signup</a>-->
-<!--      </div>-->
-<!--      <div class="header">-->
-<!--        <h2>LitElement Website</h2>-->
-<!--      </div>-->
+      <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      </div>
+      <div class="header">
+        <h2>LitElement Website</h2>
+      </div>
 
       <slot></slot>
     `;
