@@ -1,7 +1,26 @@
-import { LitElement, html, customElement, css } from 'lit-element';
+import { LitElement, html, customElement, css, property } from 'lit-element';
+
+import './UINavigation'
+import { router } from "./index";
 
 @customElement('lit-app')
 export class App extends LitElement {
+
+  static properties = {
+    _menu: { type: Array, state: true }
+  }
+
+  @property({type: Object}) location = router.location;
+
+  constructor() {
+    super();
+    this.menu = [
+        { route: '/home', name: 'Home' },
+        { route: '/explore', name: 'Exlore' },
+        { route: '/profile', name: 'Profile' }
+    ];
+  }
+
   static styles = css`
     .header {
       padding: 20px;
@@ -33,19 +52,15 @@ export class App extends LitElement {
       background-color: #008CBA;
       color: white;
     }
+    
+    lit-nav {
+      margin: 4em auto;
+    }
   `;
 
   render() {
     return html`
-      <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a>
-      </div>
-      <div class="header">
-        <h2>LitElement Website</h2>
-      </div>
-
+      <lit-nav .menu="${this.menu}" .location="${this.location}"></lit-nav>
       <slot></slot>
     `;
   }

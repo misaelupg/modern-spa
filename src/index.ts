@@ -10,7 +10,16 @@ import {
     accentPalette,
     fastTextField,
     StandardLuminance,
-    baseLayerLuminance, fastCard, cardStyles, controlCornerRadius,
+    fastAnchor,
+    baseLayerLuminance,
+    fastCard,
+    cardStyles,
+    controlCornerRadius,
+    fastMenu,
+    fastMenuItem,
+    fastDivider,
+    fastSelect,
+    fastOption,
 } from "@microsoft/fast-components";
 import { parseColorHexRGB } from "@microsoft/fast-colors";
 import { css } from "@microsoft/fast-element";
@@ -18,22 +27,28 @@ import { css } from "@microsoft/fast-element";
 provideFASTDesignSystem()
     .withPrefix("ui")
     .register(
-        fastButton()
-    )
-    .register(fastTextField())
-    .register(fastCard(
-        {
-            styles: (ctx, def): any => css`
+        fastButton(),
+        fastAnchor(),
+        fastTextField(),
+        fastSelect(),
+        fastOption(),
+        fastMenu(),
+        fastMenuItem(),
+        fastDivider(),
+        fastCard(
+            {
+                styles: (ctx, def): any => css`
                 ${(cardStyles(ctx, def as any) as any)}
                 /* add your style augmentations here */
                 :host {
                   background-color: var(--neutral-layer-1);
                 }
             `
-        }
-    ))
-neutralPalette.withDefault(PaletteRGB.create(SwatchRGB.from(parseColorHexRGB("#D8E2ED")!)))
-accentPalette.withDefault(PaletteRGB.create(SwatchRGB.from(parseColorHexRGB("#B0DBE2")!)))
+            }
+        )
+    )
+neutralPalette.withDefault(PaletteRGB.create(SwatchRGB.from(parseColorHexRGB("#fdebdc")!)))
+accentPalette.withDefault(PaletteRGB.create(SwatchRGB.from(parseColorHexRGB("#ee8567")!)))
 baseLayerLuminance.withDefault(StandardLuminance.LightMode);
 controlCornerRadius.withDefault(6)
 
